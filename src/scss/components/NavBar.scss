@@ -1,0 +1,28 @@
+.navBar{
+    height: 100px;
+    background-color:#E6E7E8;
+    width: 100%;
+}
+.logout{
+    background-color: #4199D5 ;
+    height: 40px;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+   
+}
+.textlogout{
+    display: flex;
+    margin-right: 30px;
+    color: white;
+    cursor:pointer;
+    align-items: center;
+    gap:10px
+
+}
+.logoNav{
+    height: 100%;
+    }
+    link{
+        color:white;
+    }

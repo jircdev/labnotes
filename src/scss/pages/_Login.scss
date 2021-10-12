@@ -1,0 +1,70 @@
+.containerLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 95vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 0;
+  padding: 0%;
+  cursor: pointer;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  width: 90%;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+a:link {
+  cursor: pointer;
+  color: #c8c6c6;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.login-google {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  font-size: 18px;
+}
+
+.link-signUp {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.footer {
+  color: #707070;
+  display: flex;
+  justify-content: center;
+  font-size: 11px;
+}

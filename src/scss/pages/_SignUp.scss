@@ -1,0 +1,53 @@
+@import "../components/buttons";
+@import "../components/inputs";
+
+.containerSignUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 95vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.signUp-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0%;
+
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  margin: 0;
+  padding: 0%;
+  cursor: pointer;
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  justify-content: center;
+  width: 90%;
+}
+
+a:link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.footer {
+  color: #707070;
+  display: flex;
+  justify-content: center;
+}

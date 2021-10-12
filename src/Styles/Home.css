@@ -1,0 +1,61 @@
+.contentNotes{
+    min-height: 95vh;
+}
+.navBar{
+    height: 100px;
+    background-color:#E6E7E8;
+    width: 100%;
+}
+.logout{
+    background-color: #4199D5 ;
+    height: 40px;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+   
+}
+.textlogout{
+    display: flex;
+    margin-right: 30px;
+    color: white;
+    cursor:pointer;
+    align-items: center;
+    gap:10px
+
+}
+.logoNav{
+height: 100%;
+}
+link{
+    color:white;
+}
+.notes{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.btnNotes{
+    width: 150px;
+    background-color: #E6E7E8;
+    color: #707070;
+    border-color: #E6E7E8;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    width: 90%;
+
+  }
+  textarea{
+      width: 500px;
+      height: 250px;
+      border-radius: 10px;
+  
+  }
+  .footer{
+      display: flex;
+      justify-content: center;
+  }

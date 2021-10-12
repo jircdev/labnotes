@@ -1,0 +1,28 @@
+@import "../variables";
+
+.home__page {
+
+  .container__notes {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      border: 1px solid $primary;
+      width: 200px;
+      cursor: pointer;
+
+      .card__actions {
+        display: none;
+      }
+
+      &:hover {
+        .card__actions {
+          display: block;
+        }
+      }
+    }
+
+    gap: 20px;
+  }
+
+}

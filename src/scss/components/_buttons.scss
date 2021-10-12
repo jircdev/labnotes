@@ -1,0 +1,16 @@
+@import "../variables";
+button {
+
+  &.primary-button {
+    background-color: $primary;
+    color: $text-on-primary;
+    padding: 0;
+    height: 40px;
+    border-radius: 10px;
+    border-color: #4199D5;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 60px;
+    width: 505px;
+  }
+}
