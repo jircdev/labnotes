@@ -1,0 +1,47 @@
+ul.my-notes li {
+
+  .card__actions {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  &:hover, &:focus-within {
+
+    .card__actions {
+      .items {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        width: 100%;
+        padding: 20px;
+        justify-items: center;
+
+        button {
+          border: 1px solid #fff;
+          color: #fff;
+          background: none;
+          padding: 8px 20px;
+          cursor: pointer;
+          transition: all 200ms linear;
+
+          &:hover {
+            background: $primary-dark;
+            color: $text-on-primary;
+
+          }
+
+        }
+      }
+
+      transition: all 300ms linear;
+      display: flex;
+      background: rgba($primary-light, 0.7);
+      background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);
+    }
+  }
+}

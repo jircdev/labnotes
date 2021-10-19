@@ -1,10 +1,7 @@
 import React from "react";
-//import {useAuth} from "../../../context/AuthContext";
-import "../../../scss/components/_cards.scss";
-import "../../../scss/components/_CreateNotes.scss";
+import "../../../scss/components/_notes.scss";
 import {db} from "../../../lib/firebase";
 import {doc, deleteDoc} from "firebase/firestore";
-
 import Swal from "sweetalert2";
 import {useHomeContext} from "./Home";
 import withReactContent from "sweetalert2-react-content";
@@ -12,9 +9,7 @@ import withReactContent from "sweetalert2-react-content";
 export const Note = ({note}) => {
 
     const {id, title, description, date} = note;
-    console.log("note", note);
-
-    const {setNote} = useHomeContext();
+    const {setNote, setOnView} = useHomeContext();
 
     const deleteNote = () => {
         try {
@@ -42,24 +37,29 @@ export const Note = ({note}) => {
     };
     // const current = new Date();
     // const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-
+    const onEdit = () => setNote(note);
+    const onView = () => setOnView(note);
     return (
         <li>
-            <div className="my-card">
+            <div className="card__content">
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <span>{date}</span>
             </div>
-            <button className="card-button" onClick={() => {
-                setNote(note)
-            }}>
-                Edit
-            </button>
-            <section className="card__actions">
 
-                <button className="card-button" onClick={deleteNote}>
-                    Delete
-                </button>
+            <section className="card__actions">
+                <div className="items">
+                    <button className="card-button" onClick={onEdit}>
+                        <i className="fas fa-edit"/>
+                    </button>
+                    <button className="card-button" onClick={deleteNote}>
+                        <i className="fas fa-trash-alt"/>
+                    </button>
+                    <button className="card-button" onClick={onView}>
+                        <i className="fas fa-trash-alt"/>
+                    </button>
+                </div>
+
             </section>
 
         </li>

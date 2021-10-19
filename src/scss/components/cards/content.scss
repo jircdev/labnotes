@@ -1,0 +1,31 @@
+ul.my-notes li {
+  .card__content {
+    text-decoration: none;
+    color: #000;
+    z-index: 1;
+    background: $note-three;
+    display: block;
+    height: 10em;
+    width: 10em;
+    padding: 1em;
+    box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+    transform: rotate(-6deg);
+    transition: transform 0.15s linear;
+    overflow-wrap: break-word;
+    line-height: 1;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+
+    transition: transform 300ms linear;
+    position: relative;
+
+    .card__content {
+      transform: none !important;
+      transition: transform 300ms linear;
+    }
+
+  }
+}

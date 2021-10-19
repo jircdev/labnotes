@@ -17,9 +17,6 @@
       border-radius: 5px;
       height: fit-content;
       padding: 15px;
-     
-
-
 
       .card__actions {
         display: none;
@@ -27,25 +24,22 @@
 
       }
 
-      &:hover {
-        .card__actions {
-          display: block;
-        }
+
+
+      .card-button {
+        background-color: $primary-light;
+        width: 100px;
+        height: 30px;
+        color: $primary-dark;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
       }
-      .card-button{
-      background-color: $primary-light;
-      width: 100px;
-      height: 30px;
-      color: $primary-dark;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      }
-   
+
     }
 
     gap: 20px;
-   
+
   }
 
 }

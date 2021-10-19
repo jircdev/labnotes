@@ -12,36 +12,34 @@ const ContainerNotes = () => {
     const [mynotes, setMyNotes] = useState([]);
 
     useEffect(() => {
-        const renderNotes = () => {
-            try {
-                onSnapshot(collection(db, "mynotes"), orderBy('date', 'asc'), (querySnapshot) => {
-                    const documents = [];
-                    querySnapshot.forEach((doc) => {
-                        documents.push({id: doc.id, ...doc.data()});
-                    });
-                    setMyNotes(documents);
-                })
-            }
-            catch (error) {
-                console.log(error)
-            }
+
+        try {
+            onSnapshot(collection(db, "mynotes"), orderBy('date', 'asc'), (querySnapshot) => {
+                const documents = [];
+                querySnapshot.forEach((doc) => {
+                    documents.push({id: doc.id, ...doc.data()});
+                });
+                console.log(1, documents);
+                setMyNotes(documents);
+            })
         }
-        return renderNotes();
+        catch (error) {
+            console.log(error)
+        }
 
     }, []);
 
-    return (
+    const output = []
+    mynotes.forEach((note) => {
+        if (currentUser.email !== note.user) return false;
+        output.push(<Note key={note.id} note={note}/>);
+    });
 
+
+    return (
         <div className='container__notes'>
             <ul className='my-notes'>
-
-                {mynotes.map((note) => (
-                    currentUser.email === note.user ?
-                        <Note key={note.id} note={note}/> : console.log('notes you dont have ')
-                ))}
-
-                {/* Export  component Modal  */}
-
+                {output}
             </ul>
         </div>
     );

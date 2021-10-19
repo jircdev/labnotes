@@ -1,0 +1,29 @@
+ul.my-notes {
+  li {
+    &:nth-child(even) {
+      .card__content {
+        transform: rotate(4deg);
+        position: relative;
+        top: 5px;
+        background: $note-one;
+      }
+    }
+
+    &:nth-child(3n) {
+      .card__content {
+        transform: rotate(-3deg);
+        position: relative;
+        top: -5px;
+        background: $note-two;
+      }
+    }
+
+    &:nth-child(5n) {
+      .card__content {
+        transform: rotate(5deg);
+        position: relative;
+        top: -10px;
+      }
+    }
+  }
+}
