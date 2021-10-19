@@ -7,18 +7,17 @@ import {useAuth} from '../../../context/AuthContext';
 //import { updateDoc, serverTimestamp } from "firebase/firestore";
 
 export const NoteForm = ({
-                          note = {title: "", description: ""},
-                          mode, hideModal
-                      }) => {
+                             note,
+                             mode, hideModal
+                         }) => {
 
         const {currentUser} = useAuth();
+        if (mode === 'create') note = {title: "", description: ""};
         const {id, title, description} = note;
         const [newTitle, setNewTitle] = useState(title);
         const [newDescription, setNewDescription] = useState(description);
 
         let user = currentUser.email;
-
-
 
         const handleSubmit = (e) => {
             e.preventDefault();
@@ -36,6 +35,13 @@ export const NoteForm = ({
 
         const createNote = async () => {
             try {
+                console.log(12, "aca", {
+                    title: newTitle,
+                    description: newDescription,
+                    date: new Date().toDateString(),
+                    user: user,
+
+                });
                 await addDoc(collection(db, "mynotes"), {
                     title: newTitle,
                     description: newDescription,
