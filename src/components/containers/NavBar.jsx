@@ -27,14 +27,14 @@ const handleLogout = async () => {
   return (
     <div>
       <div className="navBar">
-        <img src={logo} alt="logonav" className="logoNav"></img>
+        <img src={logo} alt="logonav" className="logoNav"/>
       </div>
       <div className="logout">
         <div className="textlogout">
           <img src={iconLogout} alt="iconlogout" className="icon" onClick={handleLogout} />
           <section onClick={handleLogout}>
-            Sign Off 
-          </section> 
+            Sign Off
+          </section>
           {error && <div className="error">{error}</div>}
         </div>
       </div>

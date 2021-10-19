@@ -4,7 +4,7 @@ import {useAuth} from "../../../context/AuthContext";
 export const Header = ({toggleModal}) => {
 
     const {currentUser} = useAuth();
-
+    console.log(2, currentUser)
     return (
         <>
             <header>

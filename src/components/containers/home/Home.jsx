@@ -11,15 +11,8 @@ export const useHomeContext = () => useContext(HomeContext);
 const Home = () => {
 
     const [state, setState] = React.useState({});
-    const toggleModal = () => {
-        setState({showModal: !state.showModal});
-    }
-
-    const closeModal = () => {
-        setState({...state, showModal: false, noteToUpdate: undefined});
-
-    }
-
+    const toggleModal = () => setState({showModal: !state.showModal});
+    const closeModal = () =>  setState({...state, showModal: false, noteToUpdate: undefined});
     const setNote = (note) => setState({
         ...state,
         noteToUpdate: note,
