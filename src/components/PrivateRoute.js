@@ -10,7 +10,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={props => {
-        //por aca voy atacar con la longitud
+        
         return currentUser ? <Component {...props} /> : <Redirect to='/'/>
       }}
     >

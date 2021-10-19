@@ -5,6 +5,7 @@ import "../../scss/pages/_SignUp.scss";
 import "../../scss/pages/_app.scss";
 import {useHistory} from "react-router-dom";
 import {useAuth} from "../../context/AuthContext";
+import Footer from "./Footer";
 
 const SignUp = () => {
 
@@ -49,16 +50,12 @@ const SignUp = () => {
                         <input type="password" placeholder="Password" onChange={handlePassword}/>
                         <input type="password" placeholder="Confirm Password" onChange={handleConfirmPassword}/>
                         {error && <p className='error'>{error}</p>}
-                        <button>SignUp</button>
+                        <button className="primary-button">SignUp</button>
                     </form>
                 </div>
             </div>
             <div>
-                <div className="footer">
-                    <p>
-                        Copyright - All rights reserved - Created by Ana Karina Dávila Dávila
-                    </p>
-                </div>
+               <Footer />
             </div>
         </div>
     );

@@ -7,9 +7,10 @@ import {Link, useHistory} from "react-router-dom";
 
 import {useAuth} from "../../context/AuthContext";
 import {auth} from "../../lib/firebase";
+import Footer from "./Footer";
 
 const Login = () => {
-    const {login, loginGoogle} = useAuth();
+    const {login, loginGoogle, currentUser} = useAuth();
     const [error, setError] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -21,13 +22,13 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const user = auth.currentUser;
-        console.log('como sale user', user);
-        if (user) {
+            if (user) {
             history.push('/Home');
         }
         else {
             try {
                 const log = await login(email, password);
+         
                 console.log('que soy', log);
                 console.log('history login', history);
                 history.push("/Home");
@@ -49,6 +50,9 @@ const Login = () => {
         }
         catch (error) {
             console.error(error);
+            setError("Wrong Credentials");
+            console.log('user', currentUser.email)
+
         }
     }
 
@@ -58,6 +62,7 @@ const Login = () => {
                 <div className="logo">
                     <img src={logo} alt="logoMyNote"/>
                 </div>
+               
                 <div className="login-content">
                     <form onSubmit={handleSubmit} className="form">
                         <input type="email" placeholder="Email" onChange={handleEmail}/>
@@ -80,17 +85,13 @@ const Login = () => {
                         </Link>
                     </div>
                     <div className="link-signUp">
-                        <p>
-                            You do not have an account?<Link to="/SignUp"> Sign up</Link>
-                        </p>
+                        <section className= "link-signUp">
+                            <p className="text-signUp">You do not have an account?</p><Link to="/SignUp"> Sign up</Link>
+                        </section>
                     </div>
                 </div>
             </div>
-            <div className="footer">
-                <p>
-                    Copyright - All rights reserved - Created by Ana Karina Dávila Dávila
-                </p>
-            </div>
+        <Footer />
         </div>
     );
 };

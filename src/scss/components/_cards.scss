@@ -7,12 +7,24 @@
     flex-wrap: wrap;
 
     .card {
-      border: 1px solid $primary;
+      border: 3px solid $secondary-dark;
       width: 200px;
       cursor: pointer;
+      overflow-wrap: break-word;
+      line-height: 1;
+      background-color: $secondary-light;
+      color: $text-on-secondary;
+      border-radius: 5px;
+      height: fit-content;
+      padding: 15px;
+     
+
+
 
       .card__actions {
         display: none;
+        position: relative;
+
       }
 
       &:hover {
@@ -20,9 +32,20 @@
           display: block;
         }
       }
+      .card-button{
+      background-color: $primary-light;
+      width: 100px;
+      height: 30px;
+      color: $primary-dark;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      }
+   
     }
 
     gap: 20px;
+   
   }
 
 }

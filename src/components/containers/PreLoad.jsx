@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Styles/PreLoad.css'
+import '../../scss/pages/_PreLoad.scss'
 const PreLoad =()=>{
     return(
         <div className='preLoad'>
