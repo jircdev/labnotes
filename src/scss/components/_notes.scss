@@ -1,7 +1,7 @@
 @import "../variables";
-@import "cards/types";
-@import "cards/content";
-@import "cards/actions";
+@import "./cards/types";
+@import "./cards/content";
+@import "./cards/actions";
 
 ul.my-notes {
 
@@ -9,9 +9,11 @@ ul.my-notes {
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
+  gap: 30px;
+  padding: 0;
 
   li {
-    margin: 1em;
+    padding: 0;
     position: relative;
     list-style: none;
 
@@ -19,6 +21,7 @@ ul.my-notes {
       font-weight: bold;
       font-size: 2rem;
     }
+
     p {
       font-size: 1rem;
     }

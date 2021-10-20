@@ -1,7 +1,8 @@
 @import "../components/buttons";
 @import "../components/inputs";
 @import "../variables";
-.containerLogin {
+
+.container__Login {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,63 +11,80 @@
   min-height: 95vh;
   overflow-y: hidden;
   overflow-x: hidden;
-}
 
-.logo {
-  display: flex;
-  justify-content: center;
-  width: 90%;
-  margin: 0;
-  padding: 0%;
-  cursor: pointer;
-}
+  .logo {
+    aspect-ratio: 16/9;
+    max-width: 600px;
+  }
 
-.login-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 70%;
-}
+  .error__section {
+    margin-top: 5px;
+    height: 30px;
+    color: red;
+  }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 50px;
-  width: 100%;
-}
+  .login__form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
 
-.icon {
-  width: 20px;
-  height: 20px;
-}
+    form {
+      width: 100%;
+      display: flex;
+      grid-gap: 15px;
+    }
 
-a:link {
-  cursor: pointer;
-  color: #c8c6c6;
-  text-decoration: none;
-  font-size: 18px;
-}
+    button.primary-button {
+      margin: auto;
 
-.login-google {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  margin: 30px;
-  font-size: 18px;
-}
+      width: 80%;
+    }
 
-.link-signUp {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  p{
-    color:$text-on-secondary;
+    .login-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 70%;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    a:link {
+      cursor: pointer;
+      color: #c8c6c6;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .login-google {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      margin: 30px;
+      font-size: 18px;
+    }
+
+    .link-signUp {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+
+      p {
+        color: $text-on-secondary;
+      }
+    }
+
   }
 }
-
-

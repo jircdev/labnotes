@@ -12,7 +12,7 @@ const Home = () => {
 
     const [state, setState] = React.useState({});
     const toggleModal = () => setState({showModal: !state.showModal});
-    const closeModal = () =>  setState({...state, showModal: false, noteToUpdate: undefined});
+    const closeModal = () => setState({...state, showModal: false, noteToUpdate: undefined});
     const setNote = (note) => setState({
         ...state,
         noteToUpdate: note,
@@ -37,12 +37,7 @@ const Home = () => {
                     <Footer/>
                 </div>
             </HomeContext.Provider>
-            {state.showModal && (
-                <NoteForm
-                    {...modalProps}
-                    hideModal={closeModal}
-                />
-            )}
+            {state.showModal && <NoteForm {...modalProps} hideModal={closeModal}/>}
         </>
     );
 };

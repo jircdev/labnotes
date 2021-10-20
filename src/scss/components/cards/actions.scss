@@ -16,14 +16,14 @@ ul.my-notes li {
       .items {
         display: flex;
         justify-content: center;
-        align-items: end;
+        align-items: flex-end;
         width: 100%;
         padding: 20px;
         justify-items: center;
 
         button {
-          border: 1px solid #fff;
-          color: #fff;
+          border: 1px solid $primary-dark;
+          color: $primary-dark;
           background: none;
           padding: 8px 20px;
           cursor: pointer;
@@ -40,8 +40,8 @@ ul.my-notes li {
 
       transition: all 300ms linear;
       display: flex;
-      background: rgba($primary-light, 0.7);
-      background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%);
+      //background: rgba($primary-light, 0.7);
+
     }
   }
 }

@@ -1,26 +1,19 @@
 @import "../variables";
 
-input {
-  font-size: 18px;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  border-color: #A6A9B6;
-  border-top: 2px solid #A6A9B6;
-  border-left: 2px solid #A6A9B6;
-  outline: none;
-  height: 50px;
+input,
+textarea {
+  border: none;
+  border-bottom: 2px solid $gray-lighter-color;
+  box-shadow: none;
+  outline: 0 !important;
+  border-radius: 0;
+  // calculamos el 100% del ancho pero debemos restarle el padding
+  width: calc(100% - 30px);
+  transition: all 300ms linear;
+  padding: 15px;
 
-  color: #707070;
-  font-family: "Open Sans", sans-serif;
-  border-radius: 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:focus, &:hover {
-    border-color: $primary;
+  &:focus {
+    border-bottom-color: $primary;
+    background: $gray-lighter-color;
   }
-
 }
-

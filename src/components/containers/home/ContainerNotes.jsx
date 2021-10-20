@@ -10,17 +10,19 @@ import '../../../scss/components/_notes.scss'
 const ContainerNotes = () => {
     const {currentUser} = useAuth();
     const [mynotes, setMyNotes] = useState([]);
-
+    const [fetching, setFetching] = useState(!mynotes.length);
     useEffect(() => {
 
         try {
+            setFetching(true);
             onSnapshot(collection(db, "mynotes"), orderBy('date', 'asc'), (querySnapshot) => {
                 const documents = [];
                 querySnapshot.forEach((doc) => {
                     documents.push({id: doc.id, ...doc.data()});
                 });
-                console.log(1, documents);
+
                 setMyNotes(documents);
+                setFetching(false);
             })
         }
         catch (error) {
@@ -35,7 +37,9 @@ const ContainerNotes = () => {
         output.push(<Note key={note.id} note={note}/>);
     });
 
-
+    if (fetching) {
+        return <h3>Cargando....</h3>;
+    }
     return (
         <div className='container__notes'>
             <ul className='my-notes'>

@@ -11,31 +11,30 @@ import Footer from "./Footer";
 
 const Login = () => {
     const {login, loginGoogle, currentUser} = useAuth();
-    const [error, setError] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+
+    const [state, setState] = useState({});
     const history = useHistory();
+    const handleEmail = e => setState({...state, email: e.target.value});
+    const handlePassword = e => setState({...state, password: e.target.value});
 
-    const handleEmail = (e) => setEmail(e.target.value);
-    const handlePassword = (e) => setPassword(e.target.value);
-
+    const {email, password, error} = state;
     const handleSubmit = async (e) => {
         e.preventDefault();
         const user = auth.currentUser;
-            if (user) {
+        if (user) {
             history.push('/Home');
         }
         else {
             try {
                 const log = await login(email, password);
-         
+
                 console.log('que soy', log);
                 console.log('history login', history);
                 history.push("/Home");
             }
             catch (error) {
-                setError("Wrong Credentials");
-                setTimeout(() => setError(""), 1500);
+                setState({...state, error: "Wrong Credentials"});
+                setTimeout(() => setState({...state, error: undefined}), 1500);
             }
         }
     };
@@ -50,20 +49,23 @@ const Login = () => {
         }
         catch (error) {
             console.error(error);
-            setError("Wrong Credentials");
-            console.log('user', currentUser.email)
+            setState({...state, error: "Wrong Credentials"});
+            console.log('user', currentUser.email);
 
         }
     }
 
+    const attrs = {};
+
+    if (!email || !password) attrs.disabled = true;
     return (
         <div className='content'>
-            <div className="containerLogin">
-                <div className="logo">
+            <div className="container__Login">
+                <header className="logo">
                     <img src={logo} alt="logoMyNote"/>
-                </div>
-               
-                <div className="login-content">
+                </header>
+
+                <div className="login__form">
                     <form onSubmit={handleSubmit} className="form">
                         <input type="email" placeholder="Email" onChange={handleEmail}/>
                         <input
@@ -71,8 +73,9 @@ const Login = () => {
                             placeholder="Password"
                             onChange={handlePassword}
                         />
-                        {error && <div className="error">{error}</div>}
+                        <div className="error__section">{error}</div>
                         <button
+                            {...attrs}
                             className="primary-button"
                             type="submit">Login
                         </button>
@@ -85,13 +88,13 @@ const Login = () => {
                         </Link>
                     </div>
                     <div className="link-signUp">
-                        <section className= "link-signUp">
+                        <section className="link-signUp">
                             <p className="text-signUp">You do not have an account?</p><Link to="/SignUp"> Sign up</Link>
                         </section>
                     </div>
                 </div>
             </div>
-        <Footer />
+            <Footer/>
         </div>
     );
 };

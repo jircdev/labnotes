@@ -19,8 +19,28 @@ button {
     transition: all 200ms ease-in;
 
     &:hover {
-      background: $primary-dark;
-      border: 1px solid $primary-dark;
+      &:not([disabled]) {
+        background: $primary-dark;
+        border: 1px solid $primary-dark;
+      }
+
     }
+
+    &[disabled] {
+      opacity: .5;
+    }
+  }
+
+  &.accent-button {
+    background-color: #E6E7E8;
+    color: #4199D5;
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+    height: 30px;
+    border-color: #E6E7E8;
+    border: 2px solid darken(#E6E7E8, 5%);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   }
 }

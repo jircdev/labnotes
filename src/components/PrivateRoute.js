@@ -1,21 +1,20 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import {Route, Redirect} from 'react-router-dom';
+import {useAuth} from '../context/AuthContext';
 // operador rest
-export const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { currentUser } = useAuth();
-  console.log('user', currentUser)
+export const PrivateRoute = ({component: Component, ...rest}) => {
+    const {currentUser} = useAuth();
 
-  return (
-    <Route
-      {...rest}
-      render={props => {
-        
-        return currentUser ? <Component {...props} /> : <Redirect to='/'/>
-      }}
-    >
+    return (
+        <Route
+            {...rest}
+            render={props => {
 
-    </Route>
-  )
+                return currentUser ? <Component {...props} /> : <Redirect to='/'/>
+            }}
+        >
+
+        </Route>
+    )
 }
 

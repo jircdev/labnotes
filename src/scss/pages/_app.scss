@@ -1,14 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
 
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
- 
-
+  overflow-x: hidden !important;
   line-height: 10px;
 }
-.root{
+
+.root {
   min-height: 90vh;
   min-width: 95vh;
+  overflow-x: hidden;
 }

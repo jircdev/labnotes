@@ -6,7 +6,7 @@ import Home from "../components/containers/home/Home";
 import Login from "../components/containers/Login";
 import SignUp from "../components/containers/SignUp";
 import NotFound from "../components/containers/NotFound";
-
+import '../scss/pages/_app.scss';
 
 import { AuthProvider } from "../context/AuthContext";
 
@@ -15,7 +15,7 @@ const App = () => {
     <Router>
       <AuthProvider>
         <Switch>
-         
+
           <Route exact path="/" component={Login}></Route>
           <Route exact path="/SignUp" component={SignUp}></Route>
           <PrivateRoute exact path="/Home" component={Home}></PrivateRoute>

@@ -4,15 +4,12 @@ import {db} from "../../../lib/firebase";
 import {collection, addDoc, doc, updateDoc} from "firebase/firestore";
 import '../../../scss/components/_modal.scss'
 import {useAuth} from '../../../context/AuthContext';
-//import { updateDoc, serverTimestamp } from "firebase/firestore";
 
-export const NoteForm = ({
-                             note,
-                             mode, hideModal
-                         }) => {
+export const NoteForm = ({note, mode, hideModal}) => {
 
         const {currentUser} = useAuth();
-        if (mode === 'create') note = {title: "", description: ""};
+        const isUpdating = mode === "update";
+        if (!isUpdating) note = {title: "", description: ""};
         const {id, title, description} = note;
         const [newTitle, setNewTitle] = useState(title);
         const [newDescription, setNewDescription] = useState(description);
@@ -21,12 +18,7 @@ export const NoteForm = ({
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            if (mode === "edit") {
-                updateNote();
-            }
-            else {
-                createNote();
-            }
+            isUpdating ? updateNote() : createNote();
             hideModal();
         };
 
@@ -68,7 +60,8 @@ export const NoteForm = ({
             }
         };
 
-        const buttonLabel = mode === "edit" ? "Update" : "Create";
+        const buttonLabel = isUpdating ? "Update" : "Create";
+
         return (
             <CustomModal show onClose={hideModal}>
                 <form className="note__form modal" onSubmit={handleSubmit}>
