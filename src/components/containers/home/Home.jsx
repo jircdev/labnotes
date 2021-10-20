@@ -5,6 +5,7 @@ import NavBar from "../NavBar";
 import Footer from "../Footer";
 import {NoteForm} from "./NoteForm";
 import {Header} from './header';
+import {CustomModal} from "./modal/CustomModal";
 
 export const HomeContext = React.createContext();
 export const useHomeContext = () => useContext(HomeContext);
@@ -17,6 +18,7 @@ const Home = () => {
         ...state,
         noteToUpdate: note,
         showModal: true
+
     });
     const modalProps = {mode: 'create'};
     if (state.noteToUpdate && state.showModal) {
@@ -26,7 +28,10 @@ const Home = () => {
     return (
         <>
             <HomeContext.Provider value={{
-                setNote: setNote
+                setNote: setNote,
+                setOnView: note => {
+                    setState({noteToShow: note})
+                }
             }}>
                 <div>
                     <NavBar/>
@@ -38,6 +43,9 @@ const Home = () => {
                 </div>
             </HomeContext.Provider>
             {state.showModal && <NoteForm {...modalProps} hideModal={closeModal}/>}
+            {state.noteToShow && <CustomModal show onClose={() => setState({noteToShow: undefined})}>
+                <h3>DETALLE DE LA NOTA</h3>
+            </CustomModal>}
         </>
     );
 };
