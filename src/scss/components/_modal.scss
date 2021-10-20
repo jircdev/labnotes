@@ -3,6 +3,8 @@
 .custom-element-modal {
 
   display: grid;
+  align-items: center;
+
 
   .title__modal {
     font-size: 18px;
@@ -22,10 +24,11 @@
     right: 15px;
     top: 15px;
     font-size: 1rem;
-    border:1px solid transparent;
+    border: 1px solid transparent;
     background: transparent;
     cursor: pointer;
     transition: all 300ms linear;
+
     &:hover {
       background: $gray-lighter-color;
     }
@@ -35,6 +38,8 @@
     padding: 30px;
     border-radius: 10px;
     min-width: 500px;
+    max-width: 600px;
+    margin: auto;
 
     .note__form {
 
@@ -50,7 +55,7 @@
         border-radius: 0;
         width: 100%;
         transition: all 300ms linear;
-        padding:8px;
+        padding: 8px;
 
         &:focus {
           border-bottom-color: $primary;
